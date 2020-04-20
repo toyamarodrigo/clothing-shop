@@ -11,30 +11,35 @@ class Directory extends React.Component {
       section: [
         {
           title: "hats",
-          imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
+          imageUrl: "https://images.pexels.com/photos/984619/pexels-photo-984619.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
           id: 1,
+          linkUrl: "hats",
         },
         {
           title: "jackets",
           imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
           id: 2,
+          linkUrl: "",
         },
         {
           title: "sneakers",
-          imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
+          imageUrl: "https://images.pexels.com/photos/2065695/pexels-photo-2065695.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
           id: 3,
+          linkUrl: "",
         },
         {
           title: "womens",
-          imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
+          imageUrl: "https://images.pexels.com/photos/2906664/pexels-photo-2906664.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
           size: "large",
           id: 4,
+          linkUrl: "",
         },
         {
           title: "mens",
-          imageUrl: "https://i.ibb.co/R70vBrQ/mens.png",
+          imageUrl: "https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
           size: "large",
           id: 5,
+          linkUrl: "",
         },
       ],
     };
@@ -43,8 +48,8 @@ class Directory extends React.Component {
   render() {
     return (
       <div className="directory-menu">
-        {this.state.section.map(({ title, imageUrl, id, size }) => (
-          <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+        {this.state.section.map(({ id, ...otherSectionProps }) => (
+          <MenuItem key={id} {...otherSectionProps} />
         ))}
       </div>
     );
@@ -52,3 +57,25 @@ class Directory extends React.Component {
 }
 
 export default Directory;
+
+/*
+It´s the same
+
+      <div className="directory-menu">
+        {this.state.section.map(({ id, ...otherSectionProps }) => (
+          <MenuItem key={id} {...otherSectionProps} />
+        ))}
+      </div>
+
+      <div className="directory-menu">
+        {this.state.section.map(({ title, imageUrl, id, size, history }) => (
+            <MenuItem 
+              key={id} 
+              title={title} 
+              imageUrl={imageUrl} 
+              size={size} 
+              history={history} 
+            />
+          ))}
+      </div>
+ */
